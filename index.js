@@ -291,7 +291,6 @@ app.get('/api/users/:_id/logs', (req, res) => {
     }
   });
 });
-
 // ----------------
 // ADDITIONAL PATHS (not required for the FreeCodeCamp project)
 
