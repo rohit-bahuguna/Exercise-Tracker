@@ -1,24 +1,24 @@
 const mongoose = require('mongoose');
 
-const ExerciseSchema = new mongoose.Schema({
-    description: {
-        type: String,
-        required: true,
-        maxlength: [25, 'Description too long, not greater than 25']
-    },
-    duration: {
-        type: Number,
-        required: true,
-        min: [1, 'Duration too short, at least 1 minute']
-    },
-    date: {
-        type: Date, 
-        default: Date.now
-    },
-    userId: {
-        type: String,
-        required: true
-    }
-})
+const { Schema } = mongoose;
 
-mongoose.model('Exercise', ExerciseSchema);
+const exerciseSchema = new Schema({
+  username: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  duration: {
+    type: Number,
+    required: true,
+  },
+  date: {
+    type: Date,
+    default: Date.now(),
+  },
+});
+
+module.exports = mongoose.model('Exercise', exerciseSchema);

@@ -1,16 +1,12 @@
 const mongoose = require('mongoose');
-const shortid = require('shortid');
 
-const UserSchema = new mongoose.Schema({
-    _id: {
-        type: String,
-        default: shortid.generate
-    },
-    username: {
-        type: String,
-        unique: true,
-        required: true
-    }
-})
+const { Schema } = mongoose;
 
-mongoose.model('User', UserSchema);
+const userSchema = new Schema({
+  username: {
+    type: String,
+    required: true,
+  },
+});
+
+module.exports = mongoose.model('User', userSchema);
